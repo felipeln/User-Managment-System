@@ -38,6 +38,7 @@ app.use(flash({sessionKeyName: 'flashmessage'}))
 // tempalte engine
 app.use(expressLayout)
 app.set('layout', "./layouts/main")
+app.set('views', './views');
 app.set('view engine', 'ejs')
 
 
@@ -47,9 +48,6 @@ app.use('/', require('./server/routes/customer'))
 
 
 // home
-
-
-
 
 // setup server
 app.listen(port, () =>{

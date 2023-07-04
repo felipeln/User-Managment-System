@@ -174,16 +174,16 @@ exports.searchCustomer= async (req,res) =>{
 
     try {
         let searchTerm = req.body.searchTerm
-        const searcNoSpecialChar = searchTerm.replace(/[^a-zA-Z0-9 ]/g, "")
+        const searchNoSpecialChar = searchTerm.replace(/[^a-zA-Z0-9 ]/g, "")
 
         const customers = await Customer.find({
             $or: [
                 {
-                    firstName: { $regex: new RegExp(searcNoSpecialChar, "i")}
+                    firstName: { $regex: new RegExp(searchNoSpecialChar, "i")}
                 },
                 
                 {
-                    lastName: { $regex: new RegExp(searcNoSpecialChar, "i")}
+                    lastName: { $regex: new RegExp(searchNoSpecialChar, "i")}
                 },
 
             ]
